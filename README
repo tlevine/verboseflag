@@ -19,7 +19,21 @@ and use the logging module for anything that you might want to print. ::
     logger = logging.getLogger(__name__)
     logger.info('Blah blah blah')
 
-The next section discusses what happens when you do this.
+The next section discusses the significance of ``package_list``,
+``__name__``, and ``logger.info``.
+
+Once you have set this all up, call ``parse_args`` on you argument
+parser. (This is how you normally use argparse; I'm just mentioning
+it in case you haven't used argparse before.) ::
+
+    p.parse_args()
+
+``parse_args`` takes a list of shell tokens, using ``sys.argv[1:]``
+by default. You can test your argument parser by passing something
+else to it. ::
+
+    p.parse_args(['-vv'])
 
 Behavior
 ------------
+
