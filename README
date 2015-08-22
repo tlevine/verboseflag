@@ -1,0 +1,25 @@
+verboseflag
+===============
+Add support for ``--verbose``, ``-v``, ``-vv``, and ``-vvv``, ``-vvvv``
+to your argparse and logging configuration.
+
+How to use
+----------------
+Add the flag to your argument parser, ::
+
+    import argparse
+    import verboseflag
+    package_list = ['name_of_my_package', 'name_of_my_other_package']
+    p = argparse.ArgumentParser()
+    verboseflag.add_arguments(p, package_list)
+
+and use the logging module for anything that you might want to print. ::
+
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info('Blah blah blah')
+
+The next section discusses what happens when you do this.
+
+Behavior
+------------
