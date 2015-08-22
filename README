@@ -34,11 +34,11 @@ else to it. ::
 
     settings = p.parse_args(['-vv'])
 
-The verbosity level is set in the ``verboseflags`` property.
+The verbosity level is set in the ``verbosity`` property.
 The last thing you need to do is to pass this to
 ``verboseflags.configure_logging``.
 
-    verboseflags.configure_logging(settings.verboseflags)
+    verboseflags.configure_logging(settings.verbosity)
 
 Behavior
 ------------
