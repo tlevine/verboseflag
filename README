@@ -40,4 +40,11 @@ verboseflags configures the logging module to log data to STDERR,
 and it limits the output depending on which verbosity flags you set,
 if any.
 
+If you set **no flags**, the logs are limited as follows.
+
+* Only messages from the packages specified in ``package_list`` are
+  emitted. (More precisely, only messages from loggers whose names
+  start with the listed package names are emitted.)
+* Of these messages, only critical, error, and warning messages are
+  emitted.
 
