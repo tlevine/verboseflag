@@ -11,16 +11,13 @@ Add the flag to your argument parser, ::
     import verboseflag
     package_list = ['name_of_my_package', 'name_of_my_other_package']
     p = argparse.ArgumentParser()
-    verboseflag.add_arguments(p, package_list)
+    verboseflag.add_arguments(p)
 
 and use the logging module for anything that you might want to print. ::
 
     import logging
     logger = logging.getLogger(__name__)
     logger.info('Blah blah blah')
-
-The next section discusses the significance of ``package_list``,
-``__name__``, and ``logger.info``.
 
 Once you have set this all up, call ``parse_args`` on you argument
 parser. (This is how you normally use argparse; I'm just mentioning
@@ -38,7 +35,10 @@ The verbosity level is set in the ``verbosity`` property.
 The last thing you need to do is to pass this to
 ``verboseflags.configure_logging``.
 
-    verboseflags.configure_logging(settings.verbosity)
+    verboseflags.configure_logging(settings.verbosity, package_list)
+
+The next section discusses the significance of ``package_list``,
+``__name__``, and ``logger.info``.
 
 Behavior
 ------------
