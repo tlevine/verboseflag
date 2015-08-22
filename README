@@ -26,13 +26,19 @@ Once you have set this all up, call ``parse_args`` on you argument
 parser. (This is how you normally use argparse; I'm just mentioning
 it in case you haven't used argparse before.) ::
 
-    p.parse_args()
+    settings = p.parse_args()
 
 ``parse_args`` takes a list of shell tokens, using ``sys.argv[1:]``
 by default. You can test your argument parser by passing something
 else to it. ::
 
-    p.parse_args(['-vv'])
+    settings = p.parse_args(['-vv'])
+
+The verbosity level is set in the ``verboseflags`` property.
+The last thing you need to do is to pass this to
+``verboseflags.configure_logging``.
+
+    verboseflags.configure_logging(settings.verboseflags)
 
 Behavior
 ------------
