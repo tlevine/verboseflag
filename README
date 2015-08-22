@@ -1,7 +1,7 @@
 verboseflag
 ===============
-Add support for ``--verbose``, ``-v``, ``-vv``, and ``-vvv``, ``-vvvv``
-to your argparse and logging configuration.
+Add support for ``--verbose``, ``-v``, ``-vv``, ``-vvv``, ``-vvvv``,
+and ``-vvvvv`` to your argparse and logging configuration.
 
 How to use
 ----------------
@@ -42,9 +42,26 @@ if any.
 
 If you set **no flags**, the logs are limited as follows.
 
-* Only messages from the packages specified in ``package_list`` are
-  emitted. (More precisely, only messages from loggers whose names
+* All critical and error messages are emitted.
+* Warnings from the packages specified in ``package_list`` are
+  emitted. (More precisely, only warnings from loggers whose names
   start with the listed package names are emitted.)
-* Of these messages, only critical, error, and warning messages are
-  emitted.
 
+If you set ``--verbose`` or ``-v``, (They're equivalent.) info level
+messages from the listed packages are emitted, along with everything
+that would have been emitted with no verbosity flags set.
+
+If you set ``-vv``, then debug level messages from the listed packages
+are emitted, along with what would have been emitted if ``-v`` was set.
+
+If you set ``-vvv``, then warnings from all packages are emitted,
+along with everything above.
+
+If you set ``-vvvv``, then info messages from all packages are emitted,
+along with everything above.
+
+And if you set ``-vvvvv``, debug messages from all not-listed packages
+are emitted, along with everything above; that is, all logging messages
+from all packages/loggers are emitted.
+
+If you set more than five Vs, you'll get an error.
