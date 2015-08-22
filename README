@@ -36,4 +36,8 @@ else to it. ::
 
 Behavior
 ------------
+verboseflags configures the logging module to log data to STDERR,
+and it limits the output depending on which verbosity flags you set,
+if any.
+
 
